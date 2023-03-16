@@ -66,7 +66,7 @@ const Skills = () => {
       title: "GitHub",
       style: "shadow-gray-400",
     },
-   
+
   ];
 
   return (

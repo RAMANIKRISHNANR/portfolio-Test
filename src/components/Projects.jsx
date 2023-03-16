@@ -1,7 +1,7 @@
 import React from "react";
-import netflix  from "../assets/portfolio/netflix.jpg";
-import delivery from "../assets/portfolio/delivery.jpg";
-import spotify from "../assets/portfolio/spotify.jpg";
+import multifit_gym from "../assets/portfolio/multifit_gym.jpg";
+import Gericht from "../assets/portfolio/Gericht.jpg";
+import youtubeclone from "../assets/portfolio/youtubeclone.png";
 import zoom from "../assets/portfolio/zoom.jpg";
 
 
@@ -9,28 +9,43 @@ const projects= () => {
   const projects = [
     {
       id: 1,
-      src:netflix ,
-      title:"Netflix",
+      src:multifit_gym ,
+      live:"https://mutlifit-gym.netlify.app",
+      code:"https://github.com/RAMANIKRISHNANR/gym",
+      stackused:["react","rapid api","material ui"],
+      About:"workout planner and target body parts",
     },
     {
       id: 2,
-      src:delivery,
+      src:Gericht,
+      About: "Restaurant Application",
+      live:"https://gerichtrestaurantnyc.netlify.app",
+      code:"https://github.com/RAMANIKRISHNANR/restaurant",
+      stackused:["react","figma","matrail-ui"],
     },
     {
       id: 3,
-      src:spotify ,
+      src:youtubeclone,
+      About: "video steaming platform",
+      live:"https://youtube-reactproject.netlify.app",
+      code:"https://github.com/RAMANIKRISHNANR/youtube",
+      stackused:["react","rapid api","material-ui"],
     },
     {
       id: 4,
       src:zoom ,
+      About: "video confernece application",
+      live:"https://incandescent-brigadeiros-fbf694.netlify.app",
+      code:"https://github.com/RAMANIKRISHNANR/frontend-capstone",
+      stackused:["react","mongodb","node.js","Express js"],
     },
-  
+
   ];
 
   return (
     <div
       name="projects"
-      className="bg-gradient-to-b from-black to-gray-800 w-full text-white lg:h-full"
+      className="bg-gradient-to-b from-black to-gray-800 w-full text-white sm:h-screem"
     >
       <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
         <div className="pb-8">
@@ -40,22 +55,37 @@ const projects= () => {
           <p className="py-6">Check out some of my work right here</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0">
-          {projects.map(({ id, src }) => (
-            <div key={id} className="shadow-md shadow-gray-600 rounded-lg">
-              <img
-                src={src}
-                alt=""
-                className="rounded-md duration-200 hover:scale-105"
-              />
-              <div className="flex items-center justify-center">
-                <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105">
-                  Demo
-                </button>
-                <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105">
-                  Code
-                </button>
-              </div>
+        <div className="grid sm:grid-cols-2 md:grid-cols-2 gap-8 px-12 sm:px-0">
+          {projects.map(({ id, src ,live, About, code ,stackused}) => (
+            <div key={id}
+            style={{
+              backgroundImage:`url(${src})`,
+            }}
+            className="shadow-lg group container rounded-md flex justify-center items-center mx-auto content-div ">
+
+              <div className="opacity-0 group-hover:opacity-100">
+                <span className="text-xl font-bold  tracking tracking-wider">{About}</span>
+                <div className="pt-8 text-center">
+                  <a target="_blank" href={`${live}`} >
+                  <button className="text-center rounded-lg px-4 py-3 m-2 font-bold text-lg text-white bg-black">Live</button>
+                  </a>
+
+                  <a target="_blank" rel="noreferrer" href={`${code}`} >
+                  <button className="text-center rounded-lg px-4 py-3 m-2 font-bold text-lg text-white bg-black">Code</button>
+                  </a>
+                </div>
+                <div className="sm:flex-hidden">
+                  {stackused.map ((stackused, i) => (
+                    <div
+                    key={i}
+                    className="text-center flex-rounded-lg p-2 mr-2 text-lg bg-black"
+                    >
+                      {stackused}
+                      </div>
+                  ))}
+                </div>
+                </div>
+
             </div>
           ))}
         </div>
